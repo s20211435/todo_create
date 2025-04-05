@@ -1,0 +1,19 @@
+div.container.mx-auto.mt-10.px-4
+  div.flex.justify-between.items-center.mb-6
+    h1.text-3xl.font-bold.text-black-500 ホーム画面
+    = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-red-600 transition duration-200'
+    / = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-danger'
+
+  p.text-gray-700.mb-4
+    | このページはホーム画面です。ログイン状態を維持しています。
+
+  div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-3.gap-4
+    div.bg-white.shadow-md.rounded-lg.p-4
+      h2.text-xl.font-semibold.text-gray-800 Card 1
+      p.text-gray-600 ここにカードの内容を記述します。
+    div.bg-white.shadow-md.rounded-lg.p-4
+      h2.text-xl.font-semibold.text-gray-800 Card 2
+      p.text-gray-600 ここにカードの内容を記述します。
+    div.bg-white.shadow-md.rounded-lg.p-4
+      h2.text-xl.font-semibold.text-gray-800 Card 3
+      p.text-gray-600 ここにカードの内容を記述します。
