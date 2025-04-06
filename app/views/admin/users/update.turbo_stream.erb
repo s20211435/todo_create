@@ -1,0 +1,2 @@
+<%= turbo_stream.remove "user_form" %>
+<%= turbo_stream.replace dom_id(@user), partial: "admin/users/user", locals: { user: @user } %>
