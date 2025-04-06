@@ -1,0 +1,8 @@
+tr id=dom_id(user)
+  td.px-4.py-2.border.border-gray-300 = user.id
+  td.px-4.py-2.border.border-gray-300 = user.name
+  td.px-4.py-2.border.border-gray-300 = user.email
+  td.px-4.py-2.border.border-gray-300 = user.created_at.strftime("%Y-%m-%d")
+  td.flex.px-4.py-2.border.border-gray-300.justify-center
+    = link_to '編集', edit_admin_user_path(user), data: { turbo_frame: "user_form" }, class: 'bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200 mr-2'
+    = link_to '削除', admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200'

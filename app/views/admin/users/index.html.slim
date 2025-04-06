@@ -1,20 +1,20 @@
-div.container.mx-auto.mt-10.px-4
+div.container.mx-auto.px-4
   h1.text-3xl.font-bold.text-center.mb-6 ユーザー一覧
 
-  table.table-auto.w-full.border-collapse.border.border-gray-300
-    thead
-      tr.bg-gray-200
-        th.px-4.py-2.border.border-gray-300 ID
-        th.px-4.py-2.border.border-gray-300 名前
-        th.px-4.py-2.border.border-gray-300 メールアドレス
-        th.px-4.py-2.border.border-gray-300 作成日
-    tbody
-      - @users.each do |user|
-        tr
-          td.px-4.py-2.border.border-gray-300 = user.id
-          td.px-4.py-2.border.border-gray-300 = user.name
-          td.px-4.py-2.border.border-gray-300 = user.email
-          td.px-4.py-2.border.border-gray-300 = user.created_at.strftime("%Y-%m-%d")
+  div.flex.justify-end.mb-4
+    = link_to '新規作成', new_admin_user_path, data: { turbo_frame: "user_form" }, class: 'bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
 
-  div.mt-6.text-center
-    = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-red-600 transition duration-200'
+  div.flex.justify-center
+    table.table-auto.border-collapse.border.border-gray-300.w-full
+      thead
+        tr.bg-gray-200
+          th.px-4.py-2.border.border-gray-300 ID
+          th.px-4.py-2.border.border-gray-300 名前
+          th.px-4.py-2.border.border-gray-300 メールアドレス
+          th.px-4.py-2.border.border-gray-300 作成日
+          th.px-4.py-2.border.border-gray-300 操作
+      tbody#users
+        - @users.each do |user|
+          = render partial: "admin/users/user", locals: { user: user }
+
+  turbo-frame#user_form
